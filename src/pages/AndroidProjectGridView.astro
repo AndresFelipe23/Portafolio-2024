@@ -1,0 +1,13 @@
+---
+import { androidProjects } from '../data/androidProjects';
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="bg-gradient-to-r from-green-600 to-blue-500 text-white py-20">
+  <!-- Aquí todo tu código para mostrar los proyectos -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {androidProjects.map((project) => (
+      <!-- Aquí va el código de cada tarjeta de proyecto -->
+    ))}
+  </div>
+</section>

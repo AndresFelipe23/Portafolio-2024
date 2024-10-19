@@ -1,0 +1,143 @@
+---
+// Experience.astro
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string[];
+  technologies: string[];
+  companyLogo: string;
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Desarrollador Junior",
+    company: "NorthWay Services S.A.",
+    location: "Bogota, Colombia",
+    period: "224 - Presente",
+    description: [
+      "Desarrollo de funcionalidades en visual basic .net",
+      "Mejoré el rendimiento de la aplicación reduciendo el tiempo de carga inicial en un 40%.",
+      "Manejo de ISS y SQL Server."
+    ],
+    technologies: ["Asp.Net Core", "C#", "Visual Basic", "Sql Server", "ISS"],
+    companyLogo: "/images/logo-trabajo.png"
+  },
+  // {
+  //   title: "Full Stack Developer",
+  //   company: "Digital Innovation Lab",
+  //   location: "Barcelona, España",
+  //   period: "2020 - 2022",
+  //   description: [
+  //     "Desarrollé y mantuve múltiples aplicaciones web utilizando el stack MERN.",
+  //     "Colaboré en el diseño e implementación de APIs RESTful.",
+  //     "Optimicé consultas de MongoDB mejorando el rendimiento en un 60%."
+  //   ],
+  //   technologies: ["MongoDB", "Express.js", "React", "Node.js", "Docker"],
+  //   companyLogo: "/api/placeholder/100/100"
+  // },
+  // {
+  //   title: "Frontend Developer",
+  //   company: "Startup Innovadora",
+  //   location: "Valencia, España",
+  //   period: "2018 - 2020",
+  //   description: [
+  //     "Desarrollé interfaces de usuario responsivas y accesibles.",
+  //     "Implementé pruebas automatizadas reduciendo bugs en producción en un 30%.",
+  //     "Colaboré en la migración de una aplicación legacy a React."
+  //   ],
+  //   technologies: ["JavaScript", "React", "SASS", "Jest", "Webpack"],
+  //   companyLogo: "/api/placeholder/100/100"
+  // }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+        Experiencia Profesional
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Mi trayectoria profesional en el desarrollo de software
+      </p>
+    </div>
+
+    <div class="mt-16 relative">
+      <!-- Línea vertical para la timeline -->
+      <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
+
+      <div class="space-y-16">
+        {experiences.map((experience, index) => (
+          <div class="relative">
+            <!-- Punto en la timeline -->
+            <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
+
+            <div class={`lg:flex items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
+              <!-- Espacio para mantener el diseño -->
+              <div class="hidden lg:block lg:w-1/2"></div>
+
+              <!-- Tarjeta de experiencia -->
+              <div class={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'}`}>
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                  <div class="flex items-center justify-between">
+                    <div class="flex-1">
+                      <h3 class="text-xl font-bold text-gray-900">
+                        {experience.title}
+                      </h3>
+                      <div class="mt-1 flex items-center">
+                        <img
+                          src={experience.companyLogo}
+                          alt={`${experience.company} logo`}
+                          class="w-8 h-8 rounded-full mr-2"
+                        />
+                        <div>
+                          <p class="text-gray-700 font-medium">
+                            {experience.company}
+                          </p>
+                          <p class="text-sm text-gray-500">
+                            {experience.location}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                      {experience.period}
+                    </span>
+                  </div>
+
+                  <ul class="mt-4 space-y-2">
+                    {experience.description.map((item) => (
+                      <li class="flex items-start">
+                        <svg class="w-4 h-4 mt-1 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                        <span class="text-gray-600">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 mb-2">
+                      Tecnologías utilizadas:
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                      {experience.technologies.map((tech) => (
+                        <span class="px-3 py-1 text-sm font-medium text-blue-600 bg-blue-50 rounded-full">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

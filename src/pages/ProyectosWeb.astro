@@ -1,0 +1,104 @@
+---
+// ProjectView.astro
+import { Icon } from 'astro-icon/components'
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  url: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Smart Learn",
+    description: "Sistema de gestion escolar.",
+    image: "/images/proyecto-uno.png",
+    tags: ["VueJs", "Node.js", "MongoDB", "S3"],
+    url: "https://github.com/AndresFelipe23/SmartLearn-v2"
+  },
+  {
+    title: "Ecommerce",
+    description: "Ecommerce desarrollado en Angular.",
+    image: "images/ecommerce.png",
+    tags: ["Angular", "Node.js", "MongoDB"],
+    url: "https://github.com/AndresFelipe23/Ecommerce"
+  },
+  {
+    title: "Sitema de manejo de presupuesto",
+    description: "Este sistema de manejo de presupuesto esta desarrollado en Asp. Net Core 6 y Sql Server.",
+    image: "images/sistema-presupuesto.png",
+    tags: ["Asp.Net Core", "C#", "Sql Server"],
+    url: "https://github.com/AndresFelipe23/ManejoPresupuestoConAspNetCore"
+  },
+  // {
+  //   title: "Sistema de  tareas",
+  //   description: "Sistema de tareas desarrollado en Asp. Net Core 6 y Sql Server.",
+  //   image: "/images/sistema-inventario.png",
+  //   tags: ["Asp.Net Core", "C#", "Sql Server"],
+  //   url: "https://github.com/AndresFelipe23/TareaMVC"
+  // }
+];
+
+const technologies = [
+  { name: "Angular", icon: "logos:angular-icon" },       // Ícono para Angular
+  { name: "Asp.Net Core", icon: "logos:dotnet" },        // Ícono para .NET Core
+  { name: "VueJs", icon: "logos:vue" },                  // Ícono de Vue.js
+  { name: "Node.js", icon: "logos:nodejs" },             // Ícono de Node.js
+  { name: "C#", icon: "logos:c-sharp" },                 // Ícono de C#
+  { name: "Firebase", icon: "logos:firebase" },          // Ícono de Firebase
+  { name: "Sql Server", icon: "mdi:database" },          // Alternativa para SQL Server usando mdi
+  { name: "MongoDB", icon: "logos:mongodb-icon" },       // Ícono de MongoDB
+];
+
+
+
+---
+
+<section class="bg-gradient-to-b from-background-proyecto-web to-background-proyecto-web-light text-white py-20">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center">
+      <div class="lg:w-1/2 mb-10 lg:mb-0">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Proyectos Web</h1>
+        <p class="text-xl mb-6">Descubre una coleccion de proyectos web que demuestran mis habilidades en desarrollo frontend y backend.</p>
+        <div class="flex flex-wrap gap-4">
+          {technologies.map((tech) => (
+            <div class="flex items-center bg-white bg-opacity-10 rounded-full px-4 py-2">
+              <Icon name={tech.icon} class="w-6 h-6 mr-2" />
+              <span>{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="lg:w-1/2">
+        <img src="/images/stack-white.png" alt="Desarrollo web"  />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ProyectosWeb" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Proyectos Destacados</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {projects.map((project) => (
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <img src={project.image} alt={project.title} class="w-full h-56 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">{project.title}</h3>
+            <p class="text-gray-600 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.map((tag) => (
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">{tag}</span>
+              ))}
+            </div>
+            <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+              Ver proyecto
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

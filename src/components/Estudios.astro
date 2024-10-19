@@ -1,0 +1,81 @@
+---
+// EstudiosTimeline.astro
+const estudios = [
+  {
+    año: '2024',
+    titulo: 'Licenciatura en Infromática',
+    institucion: 'Universidad de Cordoba',
+    descripcion: 'Estudios de Licenciatura en Informática.',
+    color: 'bg-emerald-500'
+  },
+  {
+    año: '2022',
+    titulo: 'Crea una tienda online profesional, Ecommerce con MEAN STACK',
+    institucion: 'Udemy',
+    descripcion: 'Curso de desarrollo web con MEAN Stack.',
+    color: 'bg-indigo-500'
+  },
+  {
+    año: '2022',
+    titulo: 'Aprende ASP.NET Core MVC 6 Haciendo Proyectos Desde Cero',
+    institucion: 'Udemy',
+    descripcion: 'Curso de desarrollo web con ASP.NET Core MVC 6.',
+    color: 'bg-emerald-500'
+  },
+  {
+    año: '2020',
+    titulo: 'Crea una APP Red Social con Chat estilo WHATSAPP con Android',
+    institucion: 'Udemy',
+    descripcion: 'Curso de desarrollo de aplicaciones Android con Java.',
+    color: 'bg-blue-500'
+  },
+  {
+    año: '2018',
+    titulo: 'Tecnico en sistemas',
+    institucion: 'SENA',
+    descripcion: 'Tecnico en sistemas y redes de computadores.',
+    color: 'bg-purple-500'
+  },
+  {
+    año: '2018',
+    titulo: 'Bachiller',
+    institucion: 'I.E. Antonia Santos',
+    descripcion: 'IE Publica',
+    color: 'bg-indigo-500'
+  }
+];
+---
+
+<section id="sobre-mi" class="max-w-4xl mx-auto p-8">
+  <h2 class="text-4xl font-bold mb-12 text-center text-gray-800">Trayectoria Educativa</h2>
+  <div class="relative">
+    {estudios.map((estudio, index) => (
+      <div class="mb-8 flex justify-between items-center w-full right-timeline">
+        <div class="order-1 w-5/12"></div>
+        <div class={`order-1 w-3/12 px-1 py-4 text-right ${index !== estudios.length - 1 ? 'border-r-4' : ''} ${estudio.color}`}>
+          <p class="mb-3 text-base text-white">{estudio.año}</p>
+        </div>
+        <div class="order-1 w-5/12 px-6 py-4">
+          <h3 class="mb-3 font-bold text-gray-800 text-xl">{estudio.titulo}</h3>
+          <p class="text-sm font-medium text-gray-600 mb-2">{estudio.institucion}</p>
+          <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">{estudio.descripcion}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .right-timeline:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  .right-timeline:nth-child(odd) .order-1:nth-child(1) {
+    @apply text-left px-6;
+  }
+  .right-timeline:nth-child(odd) .order-1:nth-child(2) {
+    @apply text-left border-l-4 border-r-0;
+  }
+  .right-timeline:nth-child(odd) .order-1:nth-child(3) {
+    @apply px-0;
+  }
+</style>
