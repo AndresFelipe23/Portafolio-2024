@@ -1,6 +1,6 @@
 ---
-// AndroidProjectGridView.astro
-import { Icon } from 'astro-icon/components'
+import Layout from '@layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 
 interface AndroidProject {
   title: string;
@@ -10,32 +10,32 @@ interface AndroidProject {
   features: string[];
   technologies: string[];
   playStoreUrl: string;
-  githubUrl: string;  // Nuevo campo para la URL de GitHub
+  githubUrl: string;
 }
 
 const androidProjects: AndroidProject[] = [
   {
     title: "OnlineStore",
-    description: "Aplicacion desarrollada con el lenguaje Java, la cual consiste en una tienda online usando firebase como almacenamiento de los productos.",
-    icon: "./src/images/android/kotlin.svg",
+    description: "Aplicación desarrollada con el lenguaje Java...",
+    icon: "/images/android/kotlin.svg",
     screenshots: [
       "/images/android/onlinestore-uno.png",
-      "/images/android/onlinestore-uno.png",
-      "/images/android/onlinestore-uno.png"
+      "/images/android/onlinestore-dos.png",
+      "/images/android/onlinestore-tres.png"
     ],
     features: [
-      "Planes de entrenamiento personalizados",
-      "Seguimiento de calorías y macronutrientes",
-      "Integración con Google Fit",
-      "Recordatorios y notificaciones"
+      "Planes de entrenamiento personalizados...",
+      "Seguimiento de calorías y macronutrientes...",
+      "Integración con Google Fit...",
+      "Recordatorios y notificaciones..."
     ],
     technologies: ["Kotlin", "Jetpack Compose", "Room Database", "Firebase"],
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.example.fittrackpro",
-    githubUrl: "https://github.com/yourusername/fittrackpro"  // Añade la URL de GitHub real
+    githubUrl: "https://github.com/yourusername/fittrackpro"
   },
   {
     title: "EcoScan",
-    description: "Una aplicación que ayuda a los usuarios a identificar productos sostenibles y calcular su huella de carbono.",
+    description: "Una aplicación que ayuda a los usuarios a identificar productos sostenibles...",
     icon: "/images/android/ecoscan-icon.png",
     screenshots: [
       "/images/android/ecoscan-1.jpg",
@@ -43,16 +43,15 @@ const androidProjects: AndroidProject[] = [
       "/images/android/ecoscan-3.jpg"
     ],
     features: [
-      "Escáner de códigos de barras para productos",
-      "Base de datos de productos sostenibles",
-      "Calculadora de huella de carbono",
-      "Consejos personalizados para un estilo de vida más ecológico"
+      "Escáner de códigos de barras para productos...",
+      "Base de datos de productos sostenibles...",
+      "Calculadora de huella de carbono...",
+      "Consejos personalizados para un estilo de vida más ecológico..."
     ],
     technologies: ["Java", "Android SDK", "ML Kit", "SQLite"],
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.example.ecoscan",
-    githubUrl: "https://github.com/yourusername/ecoscan"  // Añade la URL de GitHub real
-  },
-  // Añade más proyectos aquí si es necesario
+    githubUrl: "https://github.com/yourusername/ecoscan"
+  }
 ];
 
 const androidTechnologies = [
@@ -60,64 +59,67 @@ const androidTechnologies = [
   { name: "Java", icon: "logos:java" },
   { name: "Android SDK", icon: "logos:android-icon" },
   { name: "Firebase", icon: "logos:firebase" },
-  { name: "Jetpack Compose", icon: "simple-icons:jetpackcompose" },
+  { name: "Jetpack Compose", icon: "simple-icons:jetpackcompose" }
 ];
+
 ---
 
-<section class="bg-gradient-to-r from-green-600 to-blue-500 text-white py-20">
-  <div class="container mx-auto px-4">
-    <h1 class="text-4xl lg:text-5xl font-bold text-center mb-8">Proyectos Android Innovadores</h1>
-    <p class="text-xl text-center mb-12 max-w-3xl mx-auto">Explora una colección de aplicaciones Android que demuestran mis habilidades en desarrollo móvil, diseño de UI/UX y resolución de problemas.</p>
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
-      {androidTechnologies.map((tech) => (
-        <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 backdrop-blur-sm">
-          <Icon name={tech.icon} class="w-6 h-6 mr-2" />
-          <span>{tech.name}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<section id="ProyectosAndroid" class="py-20 bg-gray-100">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {androidProjects.map((project) => (
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-          <div class="relative h-64 overflow-hidden">
-            <img src={project.screenshots[0]} alt={`${project.title} screenshot`} class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-            <img src={project.icon} alt={`${project.title} icon`} class="absolute bottom-4 left-4 w-16 h-16 rounded-xl border-2 border-white shadow-lg" />
+<Layout title="Proyectos Android">
+  <section class="bg-gradient-to-r from-green-600 to-blue-500 text-white py-20 pt-32">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl lg:text-5xl font-bold text-center mb-8">Proyectos Android Innovadores</h1>
+      <p class="text-xl text-center mb-12 max-w-3xl mx-auto">
+        Explora una colección de aplicaciones Android que demuestran mis habilidades en desarrollo móvil, diseño de UI/UX y resolución de problemas.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        {androidTechnologies.map((tech) => (
+          <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 backdrop-blur-sm transition-transform duration-300 hover:scale-105">
+            <Icon name={tech.icon} class="w-6 h-6 mr-2" />
+            <span>{tech.name}</span>
           </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-2">{project.title}</h3>
-            <p class="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              {project.technologies.slice(0, 3).map((tech) => (
-                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">{tech}</span>
-              ))}
-              {project.technologies.length > 3 && (
-                <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">+{project.technologies.length - 3}</span>
-              )}
+        ))}
+      </div>
+    </div>
+  </section>
+  <section id="ProyectosAndroid" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {androidProjects.map((project) => (
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+            <div class="relative h-64 overflow-hidden">
+              <img src={project.screenshots[0]} alt={`${project.title} screenshot`} class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+              <img src={project.icon} alt={`${project.title} icon`} class="absolute bottom-4 left-4 w-16 h-16 rounded-xl border-2 border-white shadow-lg" />
             </div>
-            <div class="flex flex-col space-y-2">
-              <a href={project.playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-                <Icon name="mdi:google-play" class="w-5 h-5 mr-2" />
-                Ver en Google Play
-              </a>
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition duration-300">
-                <Icon name="mdi:github" class="w-5 h-5 mr-2" />
-                Ver en GitHub
-              </a>
-              <a href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center justify-center w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
-                <Icon name="mdi:information" class="w-5 h-5 mr-2" />
-                Ver Detalles
-              </a>
-              
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold mb-2">{project.title}</h3>
+              <p class="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.technologies.slice(0, 3).map((tech) => (
+                  <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">{tech}</span>
+                ))}
+                {project.technologies.length > 3 && (
+                  <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">+{project.technologies.length - 3}</span>
+                )}
+              </div>
+              <div class="flex flex-col space-y-2">
+                <a href={project.playStoreUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                  <Icon name="mdi:google-play" class="w-5 h-5 mr-2" />
+                  Ver en Google Play
+                </a>
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition duration-300">
+                  <Icon name="mdi:github" class="w-5 h-5 mr-2" />
+                  Ver en GitHub
+                </a>
+                <a href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center justify-center w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                  <Icon name="mdi:information" class="w-5 h-5 mr-2" />
+                  Ver Detalles
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</Layout>

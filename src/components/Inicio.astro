@@ -21,83 +21,88 @@ const socialLinks = [
   { name: "LinkedIn", icon: "simple-icons:linkedin", url: "https://linkedin.com/in/tuusuario" },
   { name: "Twitter", icon: "simple-icons:twitter", url: "https://twitter.com/tuusuario" }
 ];
+
+const navItems = [
+  { name: "Inicio", href: "#inicio" },
+  { name: "Proyectos", href: "#proyectos" },
+  { name: "Habilidades", href: "#habilidades" },
+  { name: "Contacto", href: "#contacto" }
+];
+
 ---
 
-<section id="inicio" class="relative min-h-screen bg-white overflow-hidden">
+
+
+<section id="inicio" class="relative min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-hidden pt-24">
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
   <div class="relative flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-4xl mx-auto">
-      <!-- Nuevo diseño de la foto -->
-      <div class="relative mb-8 inline-block">
-        <!-- Marco exterior decorativo -->
-        <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-lg opacity-75 blur-lg animate-pulse"></div>
-        
-        <!-- Contenedor hexagonal -->
+      <!-- Diseño mejorado de la foto -->
+      <div class="relative mb-12 inline-block">
+        <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full opacity-75 blur-lg animate-pulse"></div>
         <div class="relative group">
-          <!-- Borde con efecto -->
-          <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          <!-- Contenedor de la imagen con clip-path -->
-          <div class="relative p-1 bg-white rounded-2xl overflow-hidden transform transition-transform duration-500 group-hover:scale-105">
-            <div class="w-40 h-40 sm:w-48 sm:h-48 relative overflow-hidden rounded-xl">
+          <div class="absolute inset-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative p-1 bg-white rounded-full overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-3">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 relative overflow-hidden rounded-full">
               <img 
                 src="/images/3.jpg" 
                 alt="Andres Espitia" 
-                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
               >
-              <!-- Overlay con efecto hover -->
               <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
-          
-          <!-- Detalles decorativos -->
-          <div class="absolute -top-2 -right-2 w-4 h-4 bg-purple-500 rounded-full blur-sm animate-pulse"></div>
-          <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-pink-500 rounded-full blur-sm animate-pulse"></div>
+          <div class="absolute -top-2 -right-2 w-4 h-4 bg-purple-500 rounded-full blur-sm animate-ping"></div>
+          <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-pink-500 rounded-full blur-sm animate-ping"></div>
         </div>
       </div>
       
-      <!-- Contenido de texto -->
-      <div class="space-y-4 mb-8">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
+      <!-- Contenido de texto mejorado -->
+      <div class="space-y-6 mb-12">
+        <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 animate-gradient">
           ¡Hola, soy Andres Espitia!
         </h1>
-        <p class="text-xl sm:text-2xl text-gray-600 leading-relaxed">
+        <p class="text-2xl sm:text-3xl text-gray-700 leading-relaxed font-light">
           Desarrollador apasionado por la tecnología y la innovación.
+        </p>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          Transformando ideas en soluciones digitales con creatividad y precisión técnica.
         </p>
       </div>
       
-      <!-- Tecnologías -->
-      <div class="flex justify-center flex-wrap gap-4 mb-8">
+      <!-- Tecnologías mejoradas -->
+      <div class="flex justify-center flex-wrap gap-4 mb-12">
         {technologies.map(tech => (
-          <div class={`group flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${tech.color} cursor-pointer border border-gray-200 hover:border-gray-300 hover:shadow-md`}>
-            <Icon name={tech.icon} class="w-5 h-5 text-gray-600" />
+          <div class={`group flex items-center gap-2 bg-white px-5 py-3 rounded-full transition-all duration-300 hover:scale-110 ${tech.color} cursor-pointer border border-gray-200 hover:border-gray-300 hover:shadow-lg`}>
+            <Icon name={tech.icon} class="w-6 h-6 text-gray-600 group-hover:animate-spin-slow" />
             <span class="text-sm font-medium text-gray-700">{tech.name}</span>
           </div>
         ))}
       </div>
 
-      <!-- Links sociales -->
-      <div class="flex justify-center gap-6 mt-8">
+      <!-- Links sociales mejorados -->
+      <div class="flex justify-center gap-8 mt-12">
         {socialLinks.map(social => (
           <a 
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 hover:text-gray-600 transition-colors duration-300"
+            class="text-gray-400 hover:text-gray-600 transition-all duration-300 hover:scale-125"
           >
-            <Icon name={social.icon} class="w-6 h-6" />
+            <Icon name={social.icon} class="w-8 h-8" />
             <span class="sr-only">{social.name}</span>
           </a>
         ))}
       </div>
 
-      <!-- CTA Button -->
-      <div class="mt-12">
+      <!-- CTA Button mejorado -->
+      <div class="mt-16">
         <a 
           href="#contacto" 
-          class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+          class="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 group"
         >
           Contáctame
-          <Icon name="mdi:arrow-right" class="w-5 h-5 ml-2" />
+          <Icon name="mdi:arrow-right" class="w-6 h-6 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
         </a>
       </div>
     </div>
@@ -105,19 +110,30 @@ const socialLinks = [
 </section>
 
 <style>
-  @keyframes tilt {
-    0%, 50%, 100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(1deg);
-    }
-    75% {
-      transform: rotate(-1deg);
-    }
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .animate-tilt {
-    animation: tilt 10s infinite linear;
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+      linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 </style>
